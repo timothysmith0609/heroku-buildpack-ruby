@@ -32,6 +32,7 @@ class LanguagePack::Rails2 < LanguagePack::Ruby
       config_vars = super
       default_env_vars.map do |key, value|
         puts "DEFAULT_CONFIG_VAR: #{key}:#{value}"
+        puts "env(key) = #{env(key)}"
         config_vars[key] = env(key) || value
       end
       config_vars
