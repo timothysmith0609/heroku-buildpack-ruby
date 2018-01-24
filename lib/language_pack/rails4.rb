@@ -82,6 +82,7 @@ WARNING
         @cache.load_without_overwrite public_assets_folder
         @cache.load default_assets_cache
 
+        puts "RAKE ENV: #{rake_env}"
         precompile.invoke(env: rake_env)
 
         if precompile.success?
