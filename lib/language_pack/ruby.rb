@@ -298,8 +298,13 @@ SHELL
 
       # TODO when buildpack-env-args rolls out, we can get rid of
       # ||= and the manual setting below
+      puts "ENV: #{ENV}"
       default_config_vars.each do |key, value|
         ENV[key] ||= value
+        if key == "RAILS_ENV"
+          puts "FOUND RAILS_ENV: value=#{value}"
+        end
+        
       end
 
       ENV["GEM_PATH"] = slug_vendor_base
