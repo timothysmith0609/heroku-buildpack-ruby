@@ -30,11 +30,11 @@ class LanguagePack::Rails2 < LanguagePack::Ruby
   def default_config_vars
     instrument "rails2.default_config_vars" do
       config_vars = super
+      puts "CONFIG_VARS BEFORE: #{config_vars}"
       default_env_vars.map do |key, value|
-        puts "DEFAULT_CONFIG_VAR: #{key}:#{value}"
-        puts "env(key) = #{env(key)}"
         config_vars[key] = env(key) || value
       end
+      puts "CONFIG_VARS AFTER: #{config_vars}"
       config_vars
     end
   end
