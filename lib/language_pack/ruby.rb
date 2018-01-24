@@ -300,9 +300,11 @@ SHELL
       # ||= and the manual setting below
       puts "ENV: #{ENV}"
       default_config_vars.each do |key, value|
+        puts "BEFORE: #{ENV[key]}"
         ENV[key] ||= value
         if key == "RAILS_ENV"
-          puts "FOUND RAILS_ENV: value=#{value}"
+          puts "Key-Val: #{key}:#{value}"
+          puts "Mapped value RAILS_ENV: value=#{ENV[key]}"
         end
         
       end
