@@ -31,6 +31,7 @@ class LanguagePack::Rails2 < LanguagePack::Ruby
     instrument "rails2.default_config_vars" do
       config_vars = super
       default_env_vars.map do |key, value|
+        puts "DEFAULT_CONFIG_VAR: #{key}:#{value}"
         config_vars[key] = env(key) || value
       end
       config_vars
@@ -83,6 +84,7 @@ private
   def setup_profiled
     super
     default_env_vars.each do |key, value|
+      puts "DEFAULT ENV VAR: #{key}:#{value}"
       set_env_default key, value
     end
   end
